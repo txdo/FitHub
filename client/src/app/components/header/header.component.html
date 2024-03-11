@@ -1,0 +1,16 @@
+<header>
+  <a routerLink="/">
+    <img src="../../../assets/FitHub Logo.png" alt="logo" />
+  </a>
+  <nav *ngIf="!isLoggedIn; else loggedIn">
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register">Register</a>
+  </nav>
+  <ng-template #loggedIn>
+    <nav>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/profile">Profile</a>
+      <button (click)="logout()">Logout</button>
+    </nav>
+  </ng-template>
+</header>

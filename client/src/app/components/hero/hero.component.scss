@@ -1,0 +1,87 @@
+section {
+    padding: 5em;
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(88, 88, 255);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    .flex-row {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        height: 90%;
+        div {
+            width: 50%;
+            height: 100%;
+            img {
+                max-width: 80%;
+                border-radius: 1em;
+            }
+        }
+        div:first-child {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2em;
+            h1 {
+                font-size: 4em;
+            }
+            a {
+                padding: 1em 2em;
+                background-color: aliceblue;
+                color: rgb(88, 88, 255);
+                text-decoration: none;
+                border-radius: 1em;
+                font-weight: bold;
+                font-size: 1.1em;
+                border: 1px solid aliceblue;
+                transition: 0.3s;
+                &:hover {
+                    background-color: transparent;
+                    color: aliceblue;
+                }
+            }
+        }
+        div:last-child {
+            position: relative;
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                &:first-child {
+                    max-width: 40%;
+                    top: 60%;
+                    left: -20%;
+                    z-index: 3;
+                    transform: rotate(-10deg);
+                }
+                &:nth-child(2) {
+                    z-index: 2;
+                }
+            }
+        }
+    }
+    .shape {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        background-color: rgb(178, 178, 255);
+        border-radius: 3em;
+    }
+
+    .shape1 {
+        top: -3%;
+        right: -3%;
+        transform: rotate(10deg);
+    }
+
+    .shape2 {
+        top: 90%;
+        left: -3%;
+    }
+}

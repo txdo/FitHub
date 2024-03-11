@@ -1,0 +1,43 @@
+<section>
+  <div class="flex-row">
+    <div class="left-col">
+      <h1>Register</h1>
+      <div class="input">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" [formControl]="name" />
+      </div>
+      <div class="input">
+        <label for="username">Username</label>
+        <input type="text" id="username" [formControl]="username" />
+      </div>
+      <div class="input">
+        <label for="password">Password</label>
+        <input type="password" id="password" [formControl]="password" />
+      </div>
+      <div class="input">
+        <label for="repeat-password">Repeat Password</label>
+        <input
+          type="password"
+          id="repeat-password"
+          [formControl]="repeatPassword"
+        />
+      </div>
+      <div class="pfp-preview" *ngIf="url">
+        <button (click)="removeProfilePicture()">x</button>
+        <img src="{{ url }}" alt="profile picture" />
+      </div>
+      <label for="profilePicture" class="pfp-btn">Upload Profile Picture</label>
+      <input
+        type="file"
+        accept="image/*"
+        id="profilePicture"
+        style="display: none"
+        (change)="changeProfilePicture($event)"
+      />
+      <button (click)="register()">Register</button>
+    </div>
+    <div class="right-col">
+      <img src="../../../assets/login.webp" alt="Login illustration" />
+    </div>
+  </div>
+</section>

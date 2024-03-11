@@ -1,0 +1,19 @@
+<section>
+  <h1>Testimonials</h1>
+  <button class="prev-btn" (click)="prevSlide()">&lt;</button>
+  <div class="testimonials-container">
+    <div
+      class="testimonials-slider"
+      [ngStyle]="{ transform: 'translateX(-' + slide + '00%)' }"
+    >
+      <div class="testimonial" *ngFor="let testimonial of testimonials">
+        <p>{{ testimonial.testimonial }}</p>
+        <div class="flex-row">
+          <img [src]="testimonial.imgUrl" alt="profile picture" />
+          <p>{{ testimonial.author }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="next-btn" (click)="nextSlide()">&gt;</button>
+</section>

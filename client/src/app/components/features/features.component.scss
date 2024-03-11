@@ -1,0 +1,57 @@
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5em 10em;
+    color: rgb(67, 67, 67);
+    h1 {
+        font-size: 4em;
+        margin: 0 0 1em 0;
+    }
+    .flex-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        article {
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2em;
+            div {
+                width: 30%;
+                aspect-ratio: 1/1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                svg {
+                    width: 50%;
+                }
+            }
+            .feature1 {
+                background-color: aliceblue;
+                svg {
+                    fill: blue;
+                }
+            }
+            .feature2 {
+                background-color: rgb(255, 245, 236);
+                svg {
+                    fill: orange;
+                }
+            }
+            .feature3 {
+                background-color: rgb(255, 238, 238);
+                svg {
+                    fill: red;
+                }
+            }
+            p {
+                text-align: center;
+            }
+        }
+    }
+}

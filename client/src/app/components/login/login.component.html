@@ -1,0 +1,19 @@
+<section>
+  <div class="flex-row">
+    <div class="left-col">
+      <h1>Login</h1>
+      <div class="input">
+        <label for="username">Username</label>
+        <input type="text" id="username" [formControl]="username" />
+      </div>
+      <div class="input">
+        <label for="password">Password</label>
+        <input type="password" id="password" [formControl]="password" />
+      </div>
+      <button (click)="login()">Login</button>
+    </div>
+    <div class="right-col">
+      <img src="../../../assets/login.webp" alt="Login illustration" />
+    </div>
+  </div>
+</section>
