@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { authReducer } from './state/auth/auth.reducers';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { authReducer } from './state/auth/auth.reducers';
     FooterComponent,
     LoginComponent,
     RegisterComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

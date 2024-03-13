@@ -1,22 +1,26 @@
 const User = require("../models/User");
 
 exports.loadUserInfo = async (req, res) => {
-  const id = req.body.id;
+  const paramsId = req.params.id;
+  const userId = req.user?._id;
 
   let user;
   let isOwner = false;
 
-  if (!id) {
+  if (paramsId === "null") {
+    if (!userId)
+      return res.status(400).send({ errors: ["User not logged in"] });
+
     try {
-      user = await User.findOne({ _id: req.user._id });
+      user = await User.findOne({ _id: userId });
       isOwner = true;
     } catch {
       return res.status(400).send({ errors: ["User not found"] });
     }
   } else {
     try {
-      user = await User.findOne({ _id: id });
-      if (user._id == req.user._id) isOwner = true;
+      user = await User.findOne({ _id: userId });
+      isOwner = paramsId === userId ? true : false;
     } catch {
       return res.status(400).send({ errors: ["User not found"] });
     }

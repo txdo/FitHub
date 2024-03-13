@@ -1,0 +1,58 @@
+<section>
+  <div class="flex-row">
+    <div class="profile-info">
+      <img src="{{ pfpPath }}" alt="profile picture" />
+      <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+      <a routerLink="/edit-profile" *ngIf="isOwner; else notOwner"
+        >Edit Profile</a
+      >
+      <ng-template #notOwner>
+        <button>Follow</button>
+      </ng-template>
+      <div class="spaced-out">
+        <p>Followers</p>
+        <p>32</p>
+      </div>
+      <div class="spaced-out">
+        <p>Following</p>
+        <p>8</p>
+      </div>
+      <div class="spaced-out">
+        <p>Fitness Level</p>
+        <p *ngIf="user.fitnessLevel; else noFitnessLevel">
+          {{ user.fitnessLevel }}
+        </p>
+        <ng-template #noFitnessLevel>
+          <p>N/A</p>
+        </ng-template>
+      </div>
+      <div class="spaced-out">
+        <p>Goal</p>
+        <p *ngIf="user.goal; else noGoal">{{ user.goal }}</p>
+        <ng-template #noGoal>
+          <p>No Goal</p>
+        </ng-template>
+      </div>
+    </div>
+    <div class="shared-workouts">
+      <h1>Shared Workouts:</h1>
+      <div class="grid-col-2">
+        <div class="share-workout" *ngIf="isOwner">
+          <a routerLink="/share-workout">
+            Share a Workout!
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="#000000"
+              viewBox="0 0 256 256"
+            >
+              <path
+                d="M229.66,157.66l-48,48a8,8,0,0,1-11.32-11.32L204.69,160H128A104.11,104.11,0,0,1,24,56a8,8,0,0,1,16,0,88.1,88.1,0,0,0,88,88h76.69l-34.35-34.34a8,8,0,0,1,11.32-11.32l48,48A8,8,0,0,1,229.66,157.66Z"
+              ></path></svg
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
