@@ -1,0 +1,28 @@
+<section>
+  <h1>Share your workout!</h1>
+  <div class="name-input">
+    <label for="name">Workout Name</label>
+    <div class="row">
+      <input type="text" id="name" [formControl]="name" />
+      <button (click)="saveSharedWorkout()">Share</button>
+    </div>
+  </div>
+  <div class="workout">
+    <div class="exercise" *ngFor="let exercise of workout; index as i">
+      <h1>{{ exercise.exercise }}</h1>
+      <p *ngFor="let reps of exercise.reps">Reps: {{ reps }}</p>
+      <div class="add-reps" *ngIf="addingReps && i === repsIndex">
+        <label for="reps">Reps</label>
+        <input type="text" id="reps" [formControl]="reps" />
+        <button (click)="addReps()">Add</button>
+      </div>
+      <button *ngIf="!addingReps" (click)="toggleAddingReps(i)">+</button>
+    </div>
+    <div class="new-exercise" *ngIf="addingExercise">
+      <label for="exercise">Exercise</label>
+      <input type="text" id="exercise" [formControl]="exercise" />
+      <button (click)="addExercise()">Add</button>
+    </div>
+    <button (click)="toggleAddingExercise()">Add Exercise</button>
+  </div>
+</section>

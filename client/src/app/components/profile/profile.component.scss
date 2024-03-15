@@ -49,6 +49,29 @@ section {
                 .shared-workout {
                     aspect-ratio: 1/0.8;
                 }
+                .shared-workout {
+                    border: 2px solid lightgrey;
+                    border-radius: 1em;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    overflow: hidden;
+                    a {
+                        text-align: center;
+                        justify-self: flex-end;
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        padding: 1em;
+                        border: none;
+                        background-color: rgb(88, 88, 255);
+                        color: aliceblue;
+                        font-size: 1.1em;
+                        text-decoration: none;
+                    }
+                }
                 .share-workout {
                     border: 2px dashed lightgrey;
                     border-radius: 1em;
@@ -64,6 +87,7 @@ section {
                         gap: 1em;
                         color: rgb(67, 67, 67);
                         text-decoration: none;
+                        font-size: 1.5em;
                     }
                 }
             }

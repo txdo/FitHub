@@ -1,3 +1,4 @@
+const SharedWorkout = require("../models/SharedWorkout");
 const User = require("../models/User");
 const Workout = require("../models/Workout");
 
@@ -28,4 +29,25 @@ exports.getAllWorkouts = async (req, res) => {
   const workouts = await Workout.find({ owner: req.user._id });
 
   res.status(200).send({ workouts });
+};
+
+exports.saveSharedWorkout = async (req, res) => {
+  if (!req.user)
+    return res.status(401).send({ errors: ["User not logged in"] });
+
+  const { name, workout } = req.body;
+
+  await SharedWorkout.create({
+    name,
+    workout,
+    owner: req.user._id,
+  });
+
+  await User.findByIdAndUpdate(req.user._id, {
+    $push: {
+      sharedWorkouts: workout,
+    },
+  });
+
+  res.status(201).send({ message: "Shared workout saved successfully" });
 };

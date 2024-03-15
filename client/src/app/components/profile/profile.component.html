@@ -37,6 +37,10 @@
     <div class="shared-workouts">
       <h1>Shared Workouts:</h1>
       <div class="grid-col-2">
+        <div class="shared-workout" *ngFor="let workout of user.sharedWorkouts">
+          <h1>{{ workout.name }}</h1>
+          <a routerLink="/shared-workout/{{ workout._id }}">View Workout</a>
+        </div>
         <div class="share-workout" *ngIf="isOwner">
           <a routerLink="/share-workout">
             Share a Workout!

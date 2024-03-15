@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { authReducer } from './state/auth/auth.reducers';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ShareWorkoutComponent } from './components/share-workout/share-workout.component';
+import { SharedWorkoutComponent } from './components/shared-workout/shared-workout.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    ShareWorkoutComponent,
+    SharedWorkoutComponent,
   ],
   imports: [
     BrowserModule,

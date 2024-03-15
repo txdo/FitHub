@@ -1,3 +1,4 @@
+const SharedWorkout = require("../models/SharedWorkout");
 const User = require("../models/User");
 
 exports.loadUserInfo = async (req, res) => {
@@ -6,6 +7,7 @@ exports.loadUserInfo = async (req, res) => {
 
   let user;
   let isOwner = false;
+  let sharedWorkouts;
 
   if (paramsId === "null") {
     if (!userId)
@@ -14,13 +16,15 @@ exports.loadUserInfo = async (req, res) => {
     try {
       user = await User.findOne({ _id: userId });
       isOwner = true;
+      sharedWorkouts = await SharedWorkout.find({ owner: userId });
     } catch {
       return res.status(400).send({ errors: ["User not found"] });
     }
   } else {
     try {
-      user = await User.findOne({ _id: userId });
+      user = await User.findOne({ _id: paramsId });
       isOwner = paramsId === userId ? true : false;
+      sharedWorkouts = await SharedWorkout.find({ owner: paramsId });
     } catch {
       return res.status(400).send({ errors: ["User not found"] });
     }
@@ -32,7 +36,7 @@ exports.loadUserInfo = async (req, res) => {
     fitnessLevel: user.fitnessLevel,
     goal: user.goal,
     prevWorkouts: user.prevWorkouts,
-    sharedWorkouts: user.sharedWorkouts,
+    sharedWorkouts: sharedWorkouts,
     profilePicture: user.profilePicture,
   };
 
